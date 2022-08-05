@@ -1,6 +1,6 @@
 # Tasker
 <p align="center">
-  <img src="Cover.png" />
+  <img src="Cover.png" height="60" width="60" />
 </p>
 
 A simple application that lets you focus on one task at a time.
