@@ -1,5 +1,5 @@
 # Tasker
-[cover](Cover.png)
+![cover](Cover.png)
 
 A simple application that lets you focus on one task at a time
 
