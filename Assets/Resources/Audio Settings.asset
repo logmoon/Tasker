@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c41bfececcac7805955ed4d4eb4645b, type: 3}
+  m_Name: Audio Settings
+  m_EditorClassIdentifier: 
+  audioTracks:
+  - trackName: FIRE
+    source: {fileID: 0}
+    audioMixerGroup: {fileID: 0}
+    priority: 150
+    spatialBlend: 0
+    audio:
+    - type: 1
+      clip: {fileID: 8300000, guid: 6ae285a2aaaad0593be1dfaebde8de4d, type: 3}
+      loop: 1
+      volume: 0.5
+      pitch: 1
+      fadeDuration: 1
+  - trackName: RAIN
+    source: {fileID: 0}
+    audioMixerGroup: {fileID: 0}
+    priority: 150
+    spatialBlend: 0
+    audio:
+    - type: 2
+      clip: {fileID: 8300000, guid: f2a35db87616938c8afd6d73a830d10b, type: 3}
+      loop: 1
+      volume: 0.5
+      pitch: 1
+      fadeDuration: 1
+  - trackName: SFX
+    source: {fileID: 0}
+    audioMixerGroup: {fileID: 0}
+    priority: 192
+    spatialBlend: 0
+    audio:
+    - type: 3
+      clip: {fileID: 8300000, guid: 6bacd7594a96f8cc180c690d54441021, type: 3}
+      loop: 0
+      volume: 0.65
+      pitch: 1
+      fadeDuration: 0
+  audioNames:
+  - FIRE
+  - RAIN
+  - TIMER_OUT
+  debugSystem: 1
