@@ -21,11 +21,15 @@ public class MainMenuController : MonoBehaviour
     private bool rainPlaying = false;
     private float currentTimer;
 
+    private void OnEnable()
+    {
+        finishedTasksText.text = completedSessionsText + PlayerPrefs.GetInt("completed_tasks");
+    }
+
     public void StartTimer (float _time, string _taskName)
     {
         timerStarted = true;
         taskText.text = "Task: " + _taskName;
-        finishedTasksText.text = completedSessionsText + PlayerPrefs.GetInt("completed_tasks");
         currentTimer = _time * 60.0f;
     }
 
