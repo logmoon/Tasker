@@ -13,7 +13,6 @@ public class MainMenuController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI taskText;
     [SerializeField] private TextMeshProUGUI finishedTasksText;
     [SerializeField] private string completedSessionsText;
-    [SerializeField] private string TaskText;
     [SerializeField] private Slider fireVolumeSlider;
     [SerializeField] private Slider rainVolumeSlider;
 
@@ -21,14 +20,12 @@ public class MainMenuController : MonoBehaviour
     private bool firePlaying = false;
     private bool rainPlaying = false;
     private float currentTimer;
-    private float timerInMinutes;
 
     public void StartTimer (float _time, string _taskName)
     {
         timerStarted = true;
         taskText.text = "Task: " + _taskName;
         finishedTasksText.text = completedSessionsText + PlayerPrefs.GetInt("completed_tasks");
-        timerInMinutes = _time;
         currentTimer = _time * 60.0f;
     }
 
