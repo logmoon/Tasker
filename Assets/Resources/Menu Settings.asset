@@ -16,4 +16,6 @@ MonoBehaviour:
   - Main
   - Setup
   - Pause
+  - AlertReset
+  - AlertQuit
   debugSystem: 1

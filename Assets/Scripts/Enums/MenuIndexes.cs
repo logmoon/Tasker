@@ -4,4 +4,6 @@ public enum MenuIndexes
 	Main,
 	Setup,
 	Pause,
+	AlertReset,
+	AlertQuit,
 }

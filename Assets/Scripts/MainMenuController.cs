@@ -13,11 +13,11 @@ public class MainMenuController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI taskText;
     [SerializeField] private TextMeshProUGUI finishedTasksText;
     [SerializeField] private string completedSessionsText;
+    [SerializeField] private string TaskText;
     [SerializeField] private Slider fireVolumeSlider;
     [SerializeField] private Slider rainVolumeSlider;
 
     private bool timerStarted = false;
-    private bool gamePaused = false;
     private bool firePlaying = false;
     private bool rainPlaying = false;
     private float currentTimer;
@@ -45,7 +45,22 @@ public class MainMenuController : MonoBehaviour
 
         if (!timerStarted) return;
         currentTimer -= Time.deltaTime;
-        timerText.text = (Mathf.FloorToInt(currentTimer / 60) + 1).ToString();
+
+        // Convert the float timer value to a TimeSpan
+        TimeSpan timeSpan = TimeSpan.FromSeconds(currentTimer);
+        // Format the TimeSpan
+        string formattedTimer;
+        if (timeSpan.Hours >= 1)
+        {
+            // Format the TimeSpan as "hh:mm:ss"
+            formattedTimer = string.Format("{0:00}:{1:00}:{2:00}", timeSpan.Hours, timeSpan.Minutes, timeSpan.Seconds);
+        }
+        else
+        {
+            // Format the TimeSpan as "mm:ss" when it's less than an hour
+            formattedTimer = string.Format("{0:00}:{1:00}", timeSpan.Minutes, timeSpan.Seconds);
+        }
+        timerText.text = formattedTimer;
 
         if (currentTimer <= 0 )
         {
@@ -67,29 +82,20 @@ public class MainMenuController : MonoBehaviour
 
     public void PauseButton()
     {
-        if (gamePaused)
-        {
-            MenuManager.Instance.TurnMenuOff(MenuIndexes.Pause, MenuIndexes.None, true);
-        }
-        else
-        {
-            MenuManager.Instance.TurnMenuOn(MenuIndexes.Pause);
-        }
-
-        gamePaused = !gamePaused;
-        Time.timeScale = gamePaused ? 0.0f : 1.0f;
+        MenuManager.Instance.TurnMenuOff(MenuIndexes.Main, MenuIndexes.Pause, true);
+        Time.timeScale = 0.0f;
     }
 
     public void QuitButton()
     {
-        Application.Quit();
+        MenuManager.Instance.TurnMenuOff(MenuIndexes.Main, MenuIndexes.AlertQuit, true);
+        Time.timeScale = 0.0f;
     }
 
     public void ResetButton()
     {
-        timerStarted = false;
-        timerText.text = "0";
-        MenuManager.Instance.TurnMenuOff(MenuIndexes.Main, MenuIndexes.Setup, true);
+        MenuManager.Instance.TurnMenuOff(MenuIndexes.Main, MenuIndexes.AlertReset, true);
+        Time.timeScale = 0.0f;
     }
 
     public void FireButton()

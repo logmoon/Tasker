@@ -15,7 +15,7 @@ public class UITweener
         
         LeanTween.cancel(obj);
         obj.transform.localScale = from;
-        LeanTween.scale(obj, to, time).setEase(ease).setOnComplete(OnComplete);
+        LeanTween.scale(obj, to, time).setIgnoreTimeScale(true).setEase(ease).setOnComplete(OnComplete);
     }
 
     public void Fade(GameObject obj, float from, float to, float time, AnimationCurve ease, Action onComplete = null)
@@ -32,7 +32,7 @@ public class UITweener
 
         LeanTween.cancel(obj);
         cg.alpha = from;
-        LeanTween.alphaCanvas(cg, to, time).setEase(ease).setOnComplete(OnComplete);
+        LeanTween.alphaCanvas(cg, to, time).setIgnoreTimeScale(true).setEase(ease).setOnComplete(OnComplete);
     }
 
     
