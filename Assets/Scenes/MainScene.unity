@@ -357,6 +357,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 808398117}
     m_Modifications:
+    - target: {fileID: 1384222673231022933, guid: ece966e4507d31c40b80af1db4d50f79, type: 3}
+      propertyPath: m_ScaleAtRest.x
+      value: 0.9158387
+      objectReference: {fileID: 0}
+    - target: {fileID: 1384222673231022933, guid: ece966e4507d31c40b80af1db4d50f79, type: 3}
+      propertyPath: m_ScaleOffset.x
+      value: 0.917009
+      objectReference: {fileID: 0}
     - target: {fileID: 1707617423929613961, guid: ece966e4507d31c40b80af1db4d50f79, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0.5
@@ -368,6 +376,10 @@ PrefabInstance:
     - target: {fileID: 1707617423929613961, guid: ece966e4507d31c40b80af1db4d50f79, type: 3}
       propertyPath: m_AnchorMin.x
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2815860606725019192, guid: ece966e4507d31c40b80af1db4d50f79, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.000015258789
       objectReference: {fileID: 0}
     - target: {fileID: 2914205172360079056, guid: ece966e4507d31c40b80af1db4d50f79, type: 3}
       propertyPath: m_AnchorMax.x
@@ -392,6 +404,10 @@ PrefabInstance:
     - target: {fileID: 5459001964405011557, guid: ece966e4507d31c40b80af1db4d50f79, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5459859064673112155, guid: ece966e4507d31c40b80af1db4d50f79, type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 6650325896546186173, guid: ece966e4507d31c40b80af1db4d50f79, type: 3}
       propertyPath: m_Pivot.x
@@ -560,7 +576,7 @@ MonoBehaviour:
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0.7
+  m_MatchWidthOrHeight: 0.6
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96

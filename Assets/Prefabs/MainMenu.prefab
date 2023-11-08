@@ -770,11 +770,11 @@ RectTransform:
   - {fileID: 2815860606725019192}
   m_Father: {fileID: 6650325896546186173}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 446}
-  m_SizeDelta: {x: 500, y: 120}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 35.1, y: -144}
+  m_SizeDelta: {x: 300, y: 90}
+  m_Pivot: {x: 0, y: 1}
 --- !u!222 &2328916610830437781
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1177,7 +1177,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -1558,8 +1558,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 560, y: 100}
+  m_AnchoredPosition: {x: -0.000015258789, y: 0}
+  m_SizeDelta: {x: 300, y: 70.4254}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3261377833860753893
 CanvasRenderer:
@@ -1616,12 +1616,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 35
+  m_fontSize: 30
   m_fontSizeBase: 25
   m_fontWeight: 400
   m_enableAutoSizing: 1
-  m_fontSizeMin: 28
-  m_fontSizeMax: 35
+  m_fontSizeMin: 27
+  m_fontSizeMax: 30
   m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
@@ -1768,7 +1768,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -30.680664, y: -33}
+  m_AnchoredPosition: {x: -30.680664, y: -33.9}
   m_SizeDelta: {x: 320, y: 70}
   m_Pivot: {x: 1, y: 1}
 --- !u!222 &6069035268148288310
@@ -1844,8 +1844,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 34.6328, y: -36}
-  m_SizeDelta: {x: 200, y: 80}
+  m_AnchoredPosition: {x: 34.6328, y: -33.9}
+  m_SizeDelta: {x: 300, y: 90}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &3435113408863303445
 CanvasRenderer:
@@ -2312,7 +2312,6 @@ MonoBehaviour:
   taskText: {fileID: 8728954647943614091}
   finishedTasksText: {fileID: 7378835119982929894}
   completedSessionsText: 'Completed Tasks: '
-  TaskText: 'Task: '
   fireVolumeSlider: {fileID: 3820782228636885507}
   rainVolumeSlider: {fileID: 2863896514214916161}
 --- !u!1 &5983378794829089610
