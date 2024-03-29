@@ -533,7 +533,7 @@ MonoBehaviour:
   animationType: 0
   from: {x: 0, y: 0}
   to: {x: 1, y: 0}
-  animationTime: 0.3
+  animationTime: 0.1
   easeCurve:
     serializedVersion: 2
     m_Curve:

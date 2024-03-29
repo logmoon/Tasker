@@ -11,26 +11,43 @@ public class MainMenuController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI timeText;
     [SerializeField] private TextMeshProUGUI timerText;
     [SerializeField] private TextMeshProUGUI taskText;
-    [SerializeField] private TextMeshProUGUI finishedTasksText;
-    [SerializeField] private string completedSessionsText;
     [SerializeField] private Slider fireVolumeSlider;
     [SerializeField] private Slider rainVolumeSlider;
+    [SerializeField] private GameObject fullscreenButton;
+    [Header("Pause/Resume")]
+    [SerializeField] private Image pauseResumeImage;
+    [SerializeField] private GameObject pausedPanel;
+    [SerializeField] private Sprite pauseSprite;
+    [SerializeField] private Sprite resumeSprite;
 
     private bool timerStarted = false;
     private bool firePlaying = false;
     private bool rainPlaying = false;
     private float currentTimer;
 
+    private SessionData currentSession;
+
     private void OnEnable()
     {
-        finishedTasksText.text = completedSessionsText + PlayerPrefs.GetInt("completed_tasks");
+        if (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.IPhonePlayer)
+        {
+            fullscreenButton.SetActive(false);
+        }
     }
 
     public void StartTimer (float _time, string _taskName)
     {
+        // Data
+        currentSession = new SessionData();
+        currentSession.Name = _taskName;
+        currentSession.Duration = _time;
+
+        // Logic and UI
         timerStarted = true;
-        taskText.text = "Task: " + _taskName;
+        taskText.text = _taskName;
         currentTimer = _time * 60.0f;
+        pauseResumeImage.sprite = pauseSprite;
+        pausedPanel.SetActive(false);
     }
 
     private void Awake()
@@ -70,30 +87,34 @@ public class MainMenuController : MonoBehaviour
             timerText.text = "0";
             AudioManager.Instance.PlayAudio(AudioType.TIMER_OUT);
             MenuManager.Instance.TurnMenuOff(MenuIndexes.Main, MenuIndexes.Setup, true);
-            int tasks = PlayerPrefs.GetInt("completed_tasks") + 1;
-            PlayerPrefs.SetInt("completed_tasks", tasks);
-            finishedTasksText.text = completedSessionsText + tasks;
+
+            GameManager.Instance.SaveData.Sessions.Add(currentSession);
+            GameManager.Instance.SaveData.Save();
         }
     }
+
 
     public void FullscreenButton()
     {
         Screen.fullScreen = !Screen.fullScreen;
     }
 
-    public void PauseButton()
+    public void PauseResumeButton()
     {
-        MenuManager.Instance.TurnMenuOff(MenuIndexes.Main, MenuIndexes.Pause, true);
-        Time.timeScale = 0.0f;
+        timerStarted = !timerStarted;
+        if (timerStarted)
+        {
+            pausedPanel.SetActive(false);
+            pauseResumeImage.sprite = pauseSprite;
+        }
+        else
+        {
+            pausedPanel.SetActive(true);
+            pauseResumeImage.sprite = resumeSprite;
+        }
     }
 
     public void QuitButton()
-    {
-        MenuManager.Instance.TurnMenuOff(MenuIndexes.Main, MenuIndexes.AlertQuit, true);
-        Time.timeScale = 0.0f;
-    }
-
-    public void ResetButton()
     {
         MenuManager.Instance.TurnMenuOff(MenuIndexes.Main, MenuIndexes.AlertReset, true);
         Time.timeScale = 0.0f;

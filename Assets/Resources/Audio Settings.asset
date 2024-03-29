@@ -44,7 +44,7 @@ MonoBehaviour:
     spatialBlend: 0
     audio:
     - type: 3
-      clip: {fileID: 8300000, guid: 6bacd7594a96f8cc180c690d54441021, type: 3}
+      clip: {fileID: 8300000, guid: f1e65e1cc9b03c54db6c5d95a0a2f9e7, type: 3}
       loop: 0
       volume: 0.55
       pitch: 1

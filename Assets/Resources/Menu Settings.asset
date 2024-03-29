@@ -15,7 +15,6 @@ MonoBehaviour:
   menuNames:
   - Main
   - Setup
-  - Pause
   - AlertReset
-  - AlertQuit
-  debugSystem: 1
+  - Progress
+  debugSystem: 0

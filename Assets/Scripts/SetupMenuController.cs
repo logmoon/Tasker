@@ -42,6 +42,7 @@ public class SetupMenuController : MonoBehaviour
         timerText.text = formattedTimer;
     }
 
+
     public void StartButton()
     {
         float time = 0.0f;
@@ -52,5 +53,9 @@ public class SetupMenuController : MonoBehaviour
             mainMenu.StartTimer(time, taskNameText.text);
             MenuManager.Instance.TurnMenuOff(MenuIndexes.Setup, MenuIndexes.Main, true);
         }
+    }
+    public void ProgressButton()
+    {
+        MenuManager.Instance.TurnMenuOff(MenuIndexes.Setup, MenuIndexes.Progress, true);
     }
 }
