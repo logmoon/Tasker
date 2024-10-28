@@ -6,12 +6,17 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
     public SaveData SaveData { get; private set; }
+    public bool FirePlaying { get; set; }
+    public bool RainPlaying { get; set; }
 
     private void Awake()
     {
-        Instance = this;
-
         SaveData = SaveData.Create("SaveData");
         SaveData.Load();
+
+        FirePlaying = false;
+        RainPlaying = false;
+
+        Instance = this;
     }
 }

@@ -104,6 +104,11 @@ public class AudioManager : MonoBehaviour
         AudioTrack track = GetAudioTrack(_type);
         track.source.volume = _volume;
     }
+    public float GetAudioVolume(AudioType _type)
+    {
+        AudioTrack track = GetAudioTrack(_type);
+        return track.source.volume;
+    }
 
     public void SwitchAudio(AudioType _on, AudioType _off)
     {

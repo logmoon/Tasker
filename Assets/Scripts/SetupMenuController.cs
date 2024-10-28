@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class SetupMenuController : MonoBehaviour
 {
@@ -10,6 +11,9 @@ public class SetupMenuController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI inputText;
     [SerializeField] private TextMeshProUGUI taskNameText;
     [SerializeField] private TextMeshProUGUI timerText;
+
+    [SerializeField] private Slider fireVolumeSlider;
+    [SerializeField] private Slider rainVolumeSlider;
 
     private float timer;
 
@@ -19,6 +23,9 @@ public class SetupMenuController : MonoBehaviour
         taskNameText.text = "";
 
         timer = 0.0f;
+
+        fireVolumeSlider.value = AudioManager.Instance.GetAudioVolume(AudioType.FIRE);
+        rainVolumeSlider.value = AudioManager.Instance.GetAudioVolume(AudioType.RAIN);
     }
 
     private void Update()
@@ -57,5 +64,53 @@ public class SetupMenuController : MonoBehaviour
     public void ProgressButton()
     {
         MenuManager.Instance.TurnMenuOff(MenuIndexes.Setup, MenuIndexes.Progress, true);
+    }
+
+    public void FullscreenButton()
+    {
+        Screen.fullScreen = !Screen.fullScreen;
+    }
+
+    public void QuitButton()
+    {
+        Application.Quit();
+    }
+
+    public void FireButton()
+    {
+        if (GameManager.Instance.FirePlaying)
+        {
+            AudioManager.Instance.StopAudio(AudioType.FIRE, true);
+        }
+        else
+        {
+            AudioManager.Instance.PlayAudio(AudioType.FIRE, true);
+            SetFireVolume();
+        }
+
+        GameManager.Instance.FirePlaying = !GameManager.Instance.FirePlaying;
+    }
+    public void SetFireVolume()
+    {
+        AudioManager.Instance.SetAudioVolume(AudioType.FIRE, fireVolumeSlider.value);
+    }
+
+    public void RainButton()
+    {
+        if (GameManager.Instance.RainPlaying)
+        {
+            AudioManager.Instance.StopAudio(AudioType.RAIN, true);
+        }
+        else
+        {
+            AudioManager.Instance.PlayAudio(AudioType.RAIN, true);
+            SetRainVolume();
+        }
+
+        GameManager.Instance.RainPlaying = !GameManager.Instance.RainPlaying;
+    }
+    public void SetRainVolume()
+    {
+        AudioManager.Instance.SetAudioVolume(AudioType.RAIN, rainVolumeSlider.value);
     }
 }
