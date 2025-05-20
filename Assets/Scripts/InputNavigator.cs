@@ -10,7 +10,6 @@ public class InputNavigator : MonoBehaviour
     void Start()
     {
         system = EventSystem.current;// EventSystemManager.currentSystem;
-
     }
     // Update is called once per frame
     void Update()

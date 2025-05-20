@@ -41,6 +41,7 @@ public class MainMenuController : MonoBehaviour
         // Data
         currentSession = new SessionData();
         currentSession.Name = _taskName;
+        currentSession.SetDate(DateTime.Now);
         currentSession.Duration = _time;
 
         // Logic and UI
@@ -54,6 +55,26 @@ public class MainMenuController : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (Screen.fullScreen)
+            {
+                FullscreenButton();
+            }
+            else
+            {
+                QuitButton();
+            }
+        }
+        else if (Input.GetKeyDown(KeyCode.Space))
+        {
+            PauseResumeButton();
+        }
+        else if (Input.GetKeyDown(KeyCode.F))
+        {
+            FullscreenButton();
+        }
+
         timeText.text = DateTime.Now.ToString("hh:mm tt");
 
         if (!timerStarted) return;

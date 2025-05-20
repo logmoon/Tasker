@@ -517,7 +517,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -38}
-  m_SizeDelta: {x: 450, y: 600}
+  m_SizeDelta: {x: 530, y: 640}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &7324621411358131559
 MonoBehaviour:
@@ -694,7 +694,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   noSessionsCompleteText: {fileID: 628469300310937550}
   completedSessionsListParent: {fileID: 1664222735337260975}
-  completedSessionPrefab: {fileID: 1806363146955002547, guid: c3d3b99f2cfddc84b8f40a64ccb522d0, type: 3}
+  completedSessionPrefab: {fileID: 3385714368564686499, guid: c3d3b99f2cfddc84b8f40a64ccb522d0, type: 3}
+  completedSessionDatePrefab: {fileID: 7209232656755112359, guid: 50d18f299ad54c240b00a3f79484722d, type: 3}
 --- !u!1 &7285616012388203726
 GameObject:
   m_ObjectHideFlags: 0
@@ -706,7 +707,7 @@ GameObject:
   - component: {fileID: 3119459336078916119}
   - component: {fileID: 3046746219686527872}
   - component: {fileID: 2181566838252841062}
-  - component: {fileID: 2151485036272518340}
+  - component: {fileID: 7507488818819687265}
   m_Layer: 5
   m_Name: BackButton
   m_TagString: Untagged
@@ -772,7 +773,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &2151485036272518340
+--- !u!114 &7507488818819687265
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -781,7 +782,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7285616012388203726}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Script: {fileID: 11500000, guid: 5440ceafe842acad38ea22e2d3a45871, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
@@ -791,11 +792,11 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.4528302, g: 0.4528302, b: 0.4528302, a: 1}
-    m_PressedColor: {r: 0, g: 0, b: 0, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -813,7 +814,46 @@ MonoBehaviour:
     m_DisabledTrigger: Disabled
   m_Interactable: 1
   m_TargetGraphic: {fileID: 2181566838252841062}
-  m_OnClick:
+  easeCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  from: {x: 0.8, y: 0.8}
+  to: {x: 1.15, y: 1.15}
+  scaleDurationFromTo: {x: 0.07, y: 0.06}
+  timeBtwScale: 0.1
+  hoverScale: {x: 1.05, y: 1.05}
+  hoverScaleDuration: 0.1
+  colorTintFactor: 0.1
+  colorTransitionDuration: 0.1
+  useImageSpriteAsIdle: 1
+  buttonIdle: {fileID: 21300000, guid: fee7cb0981897184ca8e254670a1d84f, type: 3}
+  buttonHover: {fileID: 21300000, guid: fee7cb0981897184ca8e254670a1d84f, type: 3}
+  buttonPressed: {fileID: 21300000, guid: fee7cb0981897184ca8e254670a1d84f, type: 3}
+  onButtonHover:
+    m_PersistentCalls:
+      m_Calls: []
+  onButtonPressed:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 7198977282073095941}
@@ -828,6 +868,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  onButtonExit:
+    m_PersistentCalls:
+      m_Calls: []
+  IsClicking: 0
 --- !u!1 &8415732886995050338
 GameObject:
   m_ObjectHideFlags: 0
@@ -1135,7 +1179,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 550, y: 750}
+  m_SizeDelta: {x: 600, y: 800}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4887091751092704186
 CanvasRenderer:

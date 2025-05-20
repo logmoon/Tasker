@@ -357,7 +357,7 @@ GameObject:
   - component: {fileID: 2038573514166139833}
   - component: {fileID: 7261045850448885024}
   - component: {fileID: 4210742896754003229}
-  - component: {fileID: 3338217554928248498}
+  - component: {fileID: 2322963936429106368}
   m_Layer: 5
   m_Name: YesButton
   m_TagString: Untagged
@@ -382,7 +382,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 98}
+  m_AnchoredPosition: {x: 0, y: 106}
   m_SizeDelta: {x: 180, y: 60}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!222 &7261045850448885024
@@ -423,7 +423,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &3338217554928248498
+--- !u!114 &2322963936429106368
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -432,7 +432,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6406805482359820944}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Script: {fileID: 11500000, guid: 5440ceafe842acad38ea22e2d3a45871, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
@@ -442,7 +442,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -464,7 +464,46 @@ MonoBehaviour:
     m_DisabledTrigger: Disabled
   m_Interactable: 1
   m_TargetGraphic: {fileID: 4210742896754003229}
-  m_OnClick:
+  easeCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  from: {x: 0.8, y: 0.8}
+  to: {x: 1.15, y: 1.15}
+  scaleDurationFromTo: {x: 0.07, y: 0.06}
+  timeBtwScale: 0.1
+  hoverScale: {x: 1.05, y: 1.05}
+  hoverScaleDuration: 0.1
+  colorTintFactor: 0.1
+  colorTransitionDuration: 0.1
+  useImageSpriteAsIdle: 1
+  buttonIdle: {fileID: 21300000, guid: 0800cc9d4da0323489f4d25c65194aa5, type: 3}
+  buttonHover: {fileID: 21300000, guid: 0800cc9d4da0323489f4d25c65194aa5, type: 3}
+  buttonPressed: {fileID: 21300000, guid: 0800cc9d4da0323489f4d25c65194aa5, type: 3}
+  onButtonHover:
+    m_PersistentCalls:
+      m_Calls: []
+  onButtonPressed:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 4354264391551346952}
@@ -479,6 +518,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  onButtonExit:
+    m_PersistentCalls:
+      m_Calls: []
+  IsClicking: 0
 --- !u!1 &6963258758691405660
 GameObject:
   m_ObjectHideFlags: 0
@@ -716,7 +759,7 @@ GameObject:
   - component: {fileID: 6646842462724440313}
   - component: {fileID: 8385493821111497811}
   - component: {fileID: 1667925282800048288}
-  - component: {fileID: 2877810537286452782}
+  - component: {fileID: 980293664422988973}
   m_Layer: 5
   m_Name: NoButton
   m_TagString: Untagged
@@ -782,7 +825,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &2877810537286452782
+--- !u!114 &980293664422988973
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -791,7 +834,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8434021768745295828}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Script: {fileID: 11500000, guid: 5440ceafe842acad38ea22e2d3a45871, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
@@ -801,7 +844,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -823,7 +866,46 @@ MonoBehaviour:
     m_DisabledTrigger: Disabled
   m_Interactable: 1
   m_TargetGraphic: {fileID: 1667925282800048288}
-  m_OnClick:
+  easeCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  from: {x: 0.8, y: 0.8}
+  to: {x: 1.15, y: 1.15}
+  scaleDurationFromTo: {x: 0.07, y: 0.06}
+  timeBtwScale: 0.1
+  hoverScale: {x: 1.05, y: 1.05}
+  hoverScaleDuration: 0.1
+  colorTintFactor: 0.1
+  colorTransitionDuration: 0.1
+  useImageSpriteAsIdle: 1
+  buttonIdle: {fileID: 21300000, guid: 0800cc9d4da0323489f4d25c65194aa5, type: 3}
+  buttonHover: {fileID: 21300000, guid: 0800cc9d4da0323489f4d25c65194aa5, type: 3}
+  buttonPressed: {fileID: 21300000, guid: 0800cc9d4da0323489f4d25c65194aa5, type: 3}
+  onButtonHover:
+    m_PersistentCalls:
+      m_Calls: []
+  onButtonPressed:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 4354264391551346952}
@@ -838,3 +920,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  onButtonExit:
+    m_PersistentCalls:
+      m_Calls: []
+  IsClicking: 0

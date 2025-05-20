@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using System.Collections.Generic;
 using System.Collections;
+using UnityEngine.UI;
 
 public class UITweener
 {
@@ -10,8 +11,7 @@ public class UITweener
 
     public void Scale(GameObject obj, Vector2 from, Vector2 to, float time, AnimationCurve ease, Action onComplete = null)
     {
-        if (onComplete != null)
-            _onComplete = onComplete;
+        _onComplete = onComplete;
         
         LeanTween.cancel(obj);
         obj.transform.localScale = from;
@@ -20,8 +20,7 @@ public class UITweener
 
     public void Fade(GameObject obj, float from, float to, float time, AnimationCurve ease, Action onComplete = null)
     {
-        if (onComplete != null)
-            _onComplete = onComplete;
+        _onComplete = onComplete;
         
         CanvasGroup cg = null;
 
@@ -36,18 +35,29 @@ public class UITweener
     }
 
     
-    public IEnumerator ButtonClick(GameObject obj, Vector2 from, Vector2 to, float timeBtwScaling, Vector2 scaleDuration, AnimationCurve ease, Action onComplete = null)
+    public IEnumerator ButtonClick(GameObject obj, Vector2 from, Vector2 to, Vector2 reset, float timeBtwScaling, Vector2 scaleDuration, AnimationCurve ease, Action onComplete = null)
     {
         Scale(obj, from, to, scaleDuration.x, ease);
-        yield return new WaitForSeconds(timeBtwScaling);
-        Scale(obj, to, new Vector2(1f, 1f), scaleDuration.y, ease, onComplete);
+        yield return new WaitForSecondsRealtime(timeBtwScaling);
+        Scale(obj, to, reset, scaleDuration.y, ease, onComplete);
     }
 
+    public void TintColor(GameObject obj, Color from, Color to, float time, AnimationCurve ease, Action onComplete = null)
+    {
+        _onComplete = onComplete;
+        
+        Image image = obj.GetComponent<Image>();
+        if (image == null)
+            return;
+            
+        LeanTween.cancel(obj);
+        image.color = from;
+        LeanTween.color(obj, to, time).setIgnoreTimeScale(true).setEase(ease).setOnComplete(OnComplete);
+    }
+    
     private void OnComplete()
     {
-        if (_onComplete != null)
-            _onComplete?.Invoke();
-        
+        _onComplete?.Invoke();
         UITweeningComplete?.Invoke();
     }
 }

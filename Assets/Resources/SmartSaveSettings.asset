@@ -13,18 +13,11 @@ MonoBehaviour:
   m_Name: SmartSaveSettings
   m_EditorClassIdentifier: 
   config:
-    Name: MainConfig
-    EditorBuildTargets: 0200000005000000090000000d000000130000001400000015000000180000001f000000210000002500000026000000280000002b0000002c0000002d0000002e0000002f000000
+    Name: Unnamed
+    EditorBuildTargets: 
     SaveSystemType: 0
     SaveSystemConfig:
-      persistentDataPathFileBinary: 1
-      persistentDataPathFileChecksum: 1
+      persistentDataPathFileBinary: 0
+      persistentDataPathFileChecksum: 0
       persistentDataPathFileShuffle: 0
-  editorConfigs:
-  - Name: MainConfig
-    EditorBuildTargets: 0200000005000000090000000d000000130000001400000015000000180000001f000000210000002500000026000000280000002b0000002c0000002d0000002e0000002f000000
-    SaveSystemType: 0
-    SaveSystemConfig:
-      persistentDataPathFileBinary: 1
-      persistentDataPathFileChecksum: 1
-      persistentDataPathFileShuffle: 0
+  editorConfigs: []

@@ -221,7 +221,7 @@ public class AudioManager : MonoBehaviour
         _track.source.loop = audioObj.loop;
 
         float _initial = 0f;
-        float _target = audioObj.volume;
+        float _targetVolume = audioObj.volume;
         switch (_job.action)
         {
             case AudioAction.START:
@@ -232,7 +232,7 @@ public class AudioManager : MonoBehaviour
             break;
             case AudioAction.STOP:
                 _initial = _track.source.volume;
-                _target = 0f;
+                _targetVolume = 0f;
             break;
             case AudioAction.RESTART:
                 _track.source.Stop();
@@ -248,19 +248,23 @@ public class AudioManager : MonoBehaviour
 
             while (_timer <= _duration)
             {
-                _track.source.volume = Mathf.Lerp(_initial, _target, _timer / _duration);
+                _track.source.volume = Mathf.Lerp(_initial, _targetVolume, _timer / _duration);
                 _timer += Time.deltaTime;
                 yield return null;
             }
 
             // if _timer was 0.9999 and Time.deltaTime was 0.01 we would not have reached the target
             // make sure the volume is set to the value we want
-            _track.source.volume = _target;
+            _track.source.volume = _targetVolume;
 
             if (_job.action == AudioAction.STOP)
             {
                 _track.source.Stop();
             }
+        }
+        else if (_job.action == AudioAction.START || _job.action == AudioAction.RESTART)
+        {
+            _track.source.volume = _targetVolume;
         }
 
         yield return null;

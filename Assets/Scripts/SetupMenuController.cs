@@ -12,6 +12,8 @@ public class SetupMenuController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI taskNameText;
     [SerializeField] private TextMeshProUGUI timerText;
 
+    [SerializeField] private CustomButton startSessionButton;
+
     [SerializeField] private Slider fireVolumeSlider;
     [SerializeField] private Slider rainVolumeSlider;
 
@@ -28,8 +30,18 @@ public class SetupMenuController : MonoBehaviour
         rainVolumeSlider.value = AudioManager.Instance.GetAudioVolume(AudioType.RAIN);
     }
 
+    private bool IsValidInput(out float time)
+    {
+        time = 0.0f;
+        if (taskNameText.text.Length <= 1) return false;
+        string s = inputText.text.Substring(0, inputText.text.Length - 1); 
+        return float.TryParse(s, out time);
+    }
+
     private void Update()
     {
+        startSessionButton.CanPress = IsValidInput(out float time);
+
         timer += Time.deltaTime;
 
         // Convert the float timer value to a TimeSpan
@@ -49,13 +61,10 @@ public class SetupMenuController : MonoBehaviour
         timerText.text = formattedTimer;
     }
 
-
     public void StartButton()
     {
         float time = 0.0f;
-
-        string s = inputText.text.Substring(0, inputText.text.Length - 1); 
-        if (float.TryParse(s, out time) && taskNameText.text != "")
+        if (IsValidInput(out time))
         {
             mainMenu.StartTimer(time, taskNameText.text);
             MenuManager.Instance.TurnMenuOff(MenuIndexes.Setup, MenuIndexes.Main, true);

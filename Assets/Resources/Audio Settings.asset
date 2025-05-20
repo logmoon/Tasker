@@ -37,6 +37,24 @@ MonoBehaviour:
       volume: 0.5
       pitch: 1
       fadeDuration: 1
+  - trackName: BUTTON_SFX
+    source: {fileID: 0}
+    audioMixerGroup: {fileID: 0}
+    priority: 192
+    spatialBlend: 0
+    audio:
+    - type: 4
+      clip: {fileID: 8300000, guid: 45bf5b6f9e7bb0a4c80b920c58665fe3, type: 3}
+      loop: 0
+      volume: 0.1
+      pitch: 1
+      fadeDuration: 0
+    - type: 5
+      clip: {fileID: 8300000, guid: 2ec2049257746cd49b840fe25efcba64, type: 3}
+      loop: 0
+      volume: 0.1
+      pitch: 1
+      fadeDuration: 0
   - trackName: SFX
     source: {fileID: 0}
     audioMixerGroup: {fileID: 0}
@@ -53,4 +71,6 @@ MonoBehaviour:
   - FIRE
   - RAIN
   - TIMER_OUT
+  - BTN_HOVER
+  - BTN_CLICK
   debugSystem: 1
