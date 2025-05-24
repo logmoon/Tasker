@@ -577,7 +577,6 @@ MonoBehaviour:
   hoverScale: {x: 1.05, y: 1.05}
   hoverScaleDuration: 0.1
   colorTintFactor: 0.1
-  colorTransitionDuration: 0.1
   useImageSpriteAsIdle: 1
   buttonIdle: {fileID: 21300000, guid: ac9e02ea18781ab459dd5feca42c0db1, type: 3}
   buttonHover: {fileID: 21300000, guid: ac9e02ea18781ab459dd5feca42c0db1, type: 3}
@@ -829,7 +828,6 @@ MonoBehaviour:
   hoverScale: {x: 1.05, y: 1.05}
   hoverScaleDuration: 0.1
   colorTintFactor: 0.1
-  colorTransitionDuration: 0.1
   useImageSpriteAsIdle: 1
   buttonIdle: {fileID: 21300000, guid: 0800cc9d4da0323489f4d25c65194aa5, type: 3}
   buttonHover: {fileID: 21300000, guid: 0800cc9d4da0323489f4d25c65194aa5, type: 3}
@@ -1609,7 +1607,6 @@ MonoBehaviour:
   hoverScale: {x: 1.05, y: 1.05}
   hoverScaleDuration: 0.1
   colorTintFactor: 0.1
-  colorTransitionDuration: 0.1
   useImageSpriteAsIdle: 1
   buttonIdle: {fileID: 21300000, guid: 701e7ed4dde1bf949b30e33741547ac9, type: 3}
   buttonHover: {fileID: 21300000, guid: 701e7ed4dde1bf949b30e33741547ac9, type: 3}
@@ -2385,7 +2382,6 @@ MonoBehaviour:
   hoverScale: {x: 1.05, y: 1.05}
   hoverScaleDuration: 0.1
   colorTintFactor: 0.1
-  colorTransitionDuration: 0.1
   useImageSpriteAsIdle: 1
   buttonIdle: {fileID: 21300000, guid: 701e7ed4dde1bf949b30e33741547ac9, type: 3}
   buttonHover: {fileID: 21300000, guid: 701e7ed4dde1bf949b30e33741547ac9, type: 3}
@@ -2562,7 +2558,6 @@ MonoBehaviour:
   hoverScale: {x: 1.05, y: 1.05}
   hoverScaleDuration: 0.1
   colorTintFactor: 0.1
-  colorTransitionDuration: 0.1
   useImageSpriteAsIdle: 1
   buttonIdle: {fileID: 21300000, guid: 0800cc9d4da0323489f4d25c65194aa5, type: 3}
   buttonHover: {fileID: 21300000, guid: 0800cc9d4da0323489f4d25c65194aa5, type: 3}
@@ -3776,6 +3771,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   index: 2
+  objectToSelectOnEnable: {fileID: 0}
   useAnimation: 1
   animationType: 0
   from: {x: 0, y: 0}
@@ -4085,7 +4081,6 @@ MonoBehaviour:
   hoverScale: {x: 1.05, y: 1.05}
   hoverScaleDuration: 0.1
   colorTintFactor: 0.1
-  colorTransitionDuration: 0.1
   useImageSpriteAsIdle: 1
   buttonIdle: {fileID: 21300000, guid: ac9e02ea18781ab459dd5feca42c0db1, type: 3}
   buttonHover: {fileID: 21300000, guid: ac9e02ea18781ab459dd5feca42c0db1, type: 3}

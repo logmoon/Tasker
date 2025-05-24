@@ -171,7 +171,8 @@ public class CustomButton : Selectable, IPointerClickHandler, ISubmitHandler
 
         onButtonExit?.Invoke();
 
-        if (EventSystem.current == this.gameObject)
+        if (EventSystem.current.currentSelectedGameObject == this.gameObject
+            && !EventSystem.current.alreadySelecting)
             EventSystem.current.SetSelectedGameObject(null);
         
         ButtonImage.color = defaultButtonImageColor;

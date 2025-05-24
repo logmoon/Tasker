@@ -1,13 +1,14 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ProgressMenuController : MonoBehaviour
 {
     [SerializeField] private GameObject noSessionsCompleteText;
     [SerializeField] private Transform completedSessionsListParent;
+    [SerializeField] private Image scrollImage; 
     [SerializeField] private CompletedSessionOverview completedSessionPrefab;
     [SerializeField] private GameObject completedSessionDatePrefab;
 
@@ -46,11 +47,15 @@ public class ProgressMenuController : MonoBehaviour
         if (sessions.Count == 0)
         {
             noSessionsCompleteText.SetActive(true);
+            Color org = scrollImage.color;
+            scrollImage.color = new Color(org.r, org.g, org.b, 0.0f);
             return;
         }
         else
         {
             noSessionsCompleteText.SetActive(false);
+            Color org = scrollImage.color;
+            scrollImage.color = new Color(org.r, org.g, org.b, 1.0f/255.0f);
         }
 
         // Sort by date (latest date first)
@@ -65,7 +70,7 @@ public class ProgressMenuController : MonoBehaviour
             // Check if the date has changed (ignoring time)
             DateTime sessionDate = session.GetDate();
 
-            if (currentDate == null || sessionDate != currentDate)
+            if (currentDate == null || sessionDate.Date != currentDate.Value.Date)
             {
                 // Date has changed, add a header
                 var header = Instantiate(completedSessionDatePrefab, completedSessionsListParent);

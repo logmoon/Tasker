@@ -538,7 +538,7 @@ MonoBehaviour:
   m_Elasticity: 0.05
   m_Inertia: 1
   m_DecelerationRate: 0.1
-  m_ScrollSensitivity: 20
+  m_ScrollSensitivity: 25
   m_Viewport: {fileID: 912103458816900715}
   m_HorizontalScrollbar: {fileID: 0}
   m_VerticalScrollbar: {fileID: 0}
@@ -651,6 +651,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   index: 4
+  objectToSelectOnEnable: {fileID: 0}
   useAnimation: 1
   animationType: 0
   from: {x: 0, y: 0}
@@ -694,6 +695,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   noSessionsCompleteText: {fileID: 628469300310937550}
   completedSessionsListParent: {fileID: 1664222735337260975}
+  scrollImage: {fileID: 7761154315238372160}
   completedSessionPrefab: {fileID: 3385714368564686499, guid: c3d3b99f2cfddc84b8f40a64ccb522d0, type: 3}
   completedSessionDatePrefab: {fileID: 7209232656755112359, guid: 50d18f299ad54c240b00a3f79484722d, type: 3}
 --- !u!1 &7285616012388203726
@@ -814,6 +816,7 @@ MonoBehaviour:
     m_DisabledTrigger: Disabled
   m_Interactable: 1
   m_TargetGraphic: {fileID: 2181566838252841062}
+  CanPress: 1
   easeCurve:
     serializedVersion: 2
     m_Curve:
@@ -845,7 +848,6 @@ MonoBehaviour:
   hoverScale: {x: 1.05, y: 1.05}
   hoverScaleDuration: 0.1
   colorTintFactor: 0.1
-  colorTransitionDuration: 0.1
   useImageSpriteAsIdle: 1
   buttonIdle: {fileID: 21300000, guid: fee7cb0981897184ca8e254670a1d84f, type: 3}
   buttonHover: {fileID: 21300000, guid: fee7cb0981897184ca8e254670a1d84f, type: 3}

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class Menu : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class Menu : MonoBehaviour
 
     [Header("Menu Settings")]
     public MenuIndexes index;
+
+    public GameObject objectToSelectOnEnable;
 
     [Header("Menu Animation")]
     [SerializeField] private bool useAnimation;
@@ -98,6 +101,10 @@ public class Menu : MonoBehaviour
         else
         {
             isOn = true;
+            if (EventSystem.current != null && !EventSystem.current.alreadySelecting)
+            {
+                EventSystem.current.SetSelectedGameObject(objectToSelectOnEnable);
+            }
         }
     }
 
