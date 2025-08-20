@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     {
         SaveData = SaveData.Create("SaveData");
         SaveData.Load();
+        SaveData.Save();
 
         FirePlaying = false;
         RainPlaying = false;

@@ -3771,7 +3771,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   index: 2
-  objectToSelectOnEnable: {fileID: 0}
+  objectToSelectOnEnable: {fileID: 4657471776631874472}
   useAnimation: 1
   animationType: 0
   from: {x: 0, y: 0}
