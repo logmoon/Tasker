@@ -102,12 +102,15 @@ public class AudioManager : MonoBehaviour
     public void SetAudioVolume(AudioType _type, float _volume)
     {
         AudioTrack track = GetAudioTrack(_type);
+        var audioObj = GetAudioObjectFromAudioTrack(_type, track);
+        audioObj.volume = _volume;
         track.source.volume = _volume;
     }
     public float GetAudioVolume(AudioType _type)
     {
         AudioTrack track = GetAudioTrack(_type);
-        return track.source.volume;
+        var audioObj = GetAudioObjectFromAudioTrack(_type, track);
+        return audioObj.volume;
     }
 
     public void SwitchAudio(AudioType _on, AudioType _off)

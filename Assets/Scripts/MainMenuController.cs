@@ -19,6 +19,8 @@ public class MainMenuController : MonoBehaviour
     [SerializeField] private GameObject pausedPanel;
     [SerializeField] private Sprite pauseSprite;
     [SerializeField] private Sprite resumeSprite;
+    [Header("Comfirmation Menu")]
+    [SerializeField] private AlertMenuResetController comfirmationMenu;
 
     private bool timerStarted = false;
     private float currentTimer;
@@ -133,6 +135,20 @@ public class MainMenuController : MonoBehaviour
 
     public void QuitButton()
     {
+        // Setup the comfirmation menu first
+        comfirmationMenu.SetupDialog("Are you sure you want to stop the session?",
+        () =>
+        {
+            MenuManager.Instance.TurnMenuOff(MenuIndexes.AlertReset, MenuIndexes.Setup, true);
+            Time.timeScale = 1.0f;
+        },
+        () =>
+        {
+            MenuManager.Instance.TurnMenuOff(MenuIndexes.AlertReset, MenuIndexes.Main, true);
+            Time.timeScale = 1.0f;
+        });
+
+        // Then show it and pause
         MenuManager.Instance.TurnMenuOff(MenuIndexes.Main, MenuIndexes.AlertReset, true);
         Time.timeScale = 0.0f;
     }

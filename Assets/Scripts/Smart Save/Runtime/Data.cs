@@ -59,6 +59,11 @@ namespace SmartSaves
             return _original;
         }
 
+        public string GetDefaultPath()
+        {
+            return saveSystem.GetSaveFileDefaultPath();
+        }
+
         public void Save()
         {
             OnBeforeSave();
@@ -67,6 +72,13 @@ namespace SmartSaves
             OnAfterSave();
         }
         
+        public void LoadFromData(string _data)
+        {
+            OnBeforeLoad();
+            if (saveSystem != null)
+                saveSystem.LoadFromData(_data);
+            OnAfterLoad();
+        }
         public void Load()
         {
             OnBeforeLoad();

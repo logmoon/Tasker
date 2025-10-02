@@ -11,13 +11,25 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        SaveData = SaveData.Create("SaveData");
+        // Load save data
+        CreateSaveData();
         SaveData.Load();
-        SaveData.Save();
 
         FirePlaying = false;
         RainPlaying = false;
 
         Instance = this;
+    }
+
+    private void CreateSaveData()
+    {
+        SaveData = SaveData.Create("TaskerSessions");
+    }
+
+    public void VoidSaveData()
+    {
+        SaveData.Delete();
+        CreateSaveData();
+        SaveData.Save();
     }
 }

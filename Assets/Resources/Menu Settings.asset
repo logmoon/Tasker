@@ -17,4 +17,5 @@ MonoBehaviour:
   - Setup
   - AlertReset
   - Progress
+  - Settings
   debugSystem: 0

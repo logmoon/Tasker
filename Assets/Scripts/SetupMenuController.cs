@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using System;
 using UnityEngine;
 using TMPro;
@@ -8,6 +6,9 @@ using UnityEngine.UI;
 public class SetupMenuController : MonoBehaviour
 {
     [SerializeField] private MainMenuController mainMenu;
+    [SerializeField] private AlertMenuResetController comfirmationMenu;
+
+    [SerializeField] private TextMeshProUGUI titleText;
     [SerializeField] private TextMeshProUGUI inputText;
     [SerializeField] private TextMeshProUGUI taskNameText;
     [SerializeField] private TextMeshProUGUI timerText;
@@ -21,6 +22,7 @@ public class SetupMenuController : MonoBehaviour
 
     private void OnEnable()
     {
+        titleText.text = WelcomeMessageGenerator.GetMessage();
         inputText.text = "";
         taskNameText.text = "";
 
@@ -80,11 +82,27 @@ public class SetupMenuController : MonoBehaviour
         Screen.fullScreen = !Screen.fullScreen;
     }
 
-    public void QuitButton()
+    public void SettingsButton()
     {
-        Application.Quit();
+        MenuManager.Instance.TurnMenuOff(MenuIndexes.Setup, MenuIndexes.Settings, true);
     }
 
+    public void QuitButton()
+    {
+        // Setup the comfirmation menu first
+        comfirmationMenu.SetupDialog("Are you sure you want to quit?",
+        () =>
+        {
+            Application.Quit();
+        },
+        () =>
+        {
+            MenuManager.Instance.TurnMenuOff(MenuIndexes.AlertReset, MenuIndexes.Setup, true);
+        });
+
+        // Then show it
+        MenuManager.Instance.TurnMenuOff(MenuIndexes.Setup, MenuIndexes.AlertReset, true);
+    }
     public void FireButton()
     {
         if (GameManager.Instance.FirePlaying)

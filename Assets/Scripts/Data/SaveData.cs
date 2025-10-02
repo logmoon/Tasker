@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -16,11 +15,11 @@ public class SaveData : SmartSaves.Data<SaveData>
         if (Version < CURRENT_VERSION)
         {
             Debug.LogWarning("SaveData version is outdated. Attempting migration.");
-            MigrateSaveData();
+            HandleMigrations();
         }
     }
 
-    private void MigrateSaveData()
+    private void HandleMigrations()
     {
         foreach (var session in Sessions)
         {
@@ -36,6 +35,9 @@ public class SaveData : SmartSaves.Data<SaveData>
 
         // Update the version
         Version = CURRENT_VERSION;
+
+        this.Save();
+
         Debug.Log("SaveData migration complete.");
     }
 }

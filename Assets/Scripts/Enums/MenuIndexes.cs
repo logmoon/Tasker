@@ -5,4 +5,5 @@ public enum MenuIndexes
 	Setup,
 	AlertReset,
 	Progress,
+	Settings,
 }

@@ -101,7 +101,7 @@ public class Menu : MonoBehaviour
         else
         {
             isOn = true;
-            if (EventSystem.current != null && !EventSystem.current.alreadySelecting)
+            if (EventSystem.current != null && !EventSystem.current.alreadySelecting && objectToSelectOnEnable != null)
             {
                 EventSystem.current.SetSelectedGameObject(objectToSelectOnEnable);
             }
