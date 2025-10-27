@@ -4,8 +4,8 @@ using UnityEngine;
 
 public enum FPSCapSetting
 {
-    THIRTY,
     SIXTY,
+    THIRTY,
     MONITOR,
 }
 
@@ -14,7 +14,7 @@ public class SaveData : SmartSaves.Data<SaveData>
     public const int CURRENT_VERSION = 2;
 
     // Settings
-    public FPSCapSetting FPSCapSetting = FPSCapSetting.THIRTY;
+    public FPSCapSetting FPSCapSetting = FPSCapSetting.SIXTY;
 
     // Sessions
     public List<SessionData> Sessions = new List<SessionData>();
@@ -50,7 +50,7 @@ public class SaveData : SmartSaves.Data<SaveData>
 
         // =============================================================================
         // VERSION 2 MIGRATION:
-        FPSCapSetting = FPSCapSetting.THIRTY;
+        FPSCapSetting = FPSCapSetting.SIXTY;
         // =============================================================================
 
         // Update the version

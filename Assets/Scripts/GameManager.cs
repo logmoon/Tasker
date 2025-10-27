@@ -20,10 +20,6 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        // Config application settings
-        QualitySettings.vSyncCount = 0;       // Disable VSync
-        Application.targetFrameRate = 30;     // Hard cap at 30 FPS
-
         // Load save data
         CreateSaveData();
         Load();
@@ -53,15 +49,15 @@ public class GameManager : MonoBehaviour
     {
         switch (setting)
         {
-            case FPSCapSetting.THIRTY:
-                QualitySettings.vSyncCount = 0;
-                Application.targetFrameRate = 30;
-                SaveData.FPSCapSetting = FPSCapSetting.THIRTY;
-                break;
             case FPSCapSetting.SIXTY:
                 QualitySettings.vSyncCount = 0;
                 Application.targetFrameRate = 60;
                 SaveData.FPSCapSetting = FPSCapSetting.SIXTY;
+                break;
+            case FPSCapSetting.THIRTY:
+                QualitySettings.vSyncCount = 0;
+                Application.targetFrameRate = 30;
+                SaveData.FPSCapSetting = FPSCapSetting.THIRTY;
                 break;
             case FPSCapSetting.MONITOR:
                 QualitySettings.vSyncCount = 1;
@@ -69,7 +65,9 @@ public class GameManager : MonoBehaviour
                 SaveData.FPSCapSetting = FPSCapSetting.MONITOR;
                 break;
             default:
-                SaveData.FPSCapSetting = FPSCapSetting.THIRTY;
+                QualitySettings.vSyncCount = 0;
+                Application.targetFrameRate = 60;
+                SaveData.FPSCapSetting = FPSCapSetting.SIXTY;
                 break;
         }
 
