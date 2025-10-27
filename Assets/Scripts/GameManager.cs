@@ -9,11 +9,27 @@ public class GameManager : MonoBehaviour
     public bool FirePlaying { get; set; }
     public bool RainPlaying { get; set; }
 
+    public void Save()
+    {
+        SaveData.Save();
+    }
+    public void Load()
+    {
+        SaveData.Load();
+    }
+
     private void Awake()
     {
+        // Config application settings
+        QualitySettings.vSyncCount = 0;       // Disable VSync
+        Application.targetFrameRate = 30;     // Hard cap at 30 FPS
+
         // Load save data
         CreateSaveData();
-        SaveData.Load();
+        Load();
+
+        // Set FPS cap based on saved setting
+        SetFpsCap(SaveData.FPSCapSetting);
 
         FirePlaying = false;
         RainPlaying = false;
@@ -30,6 +46,42 @@ public class GameManager : MonoBehaviour
     {
         SaveData.Delete();
         CreateSaveData();
-        SaveData.Save();
+        Save();
+    }
+
+    public void SetFpsCap(FPSCapSetting setting, bool save = false)
+    {
+        switch (setting)
+        {
+            case FPSCapSetting.THIRTY:
+                QualitySettings.vSyncCount = 0;
+                Application.targetFrameRate = 30;
+                SaveData.FPSCapSetting = FPSCapSetting.THIRTY;
+                break;
+            case FPSCapSetting.SIXTY:
+                QualitySettings.vSyncCount = 0;
+                Application.targetFrameRate = 60;
+                SaveData.FPSCapSetting = FPSCapSetting.SIXTY;
+                break;
+            case FPSCapSetting.MONITOR:
+                QualitySettings.vSyncCount = 1;
+                Application.targetFrameRate = 60;
+                SaveData.FPSCapSetting = FPSCapSetting.MONITOR;
+                break;
+            default:
+                SaveData.FPSCapSetting = FPSCapSetting.THIRTY;
+                break;
+        }
+
+        if (save)
+        {
+            SaveData.Save();
+        }
+    }
+
+    public int GetFpsCapForMonitor()
+    {
+        var ratio = Screen.currentResolution.refreshRateRatio;
+        return (int)((float)ratio.numerator / ratio.denominator);
     }
 }

@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class SettingsMenuController : MonoBehaviour
 {
+    [Header("Application")]
+    [SerializeField] private TextMeshProUGUI currentFpsCapText;
+    [Header("Data")]
     [SerializeField] private TextMeshProUGUI message;
     [SerializeField] private AlertMenuResetController comfirmationMenu;
 
@@ -22,6 +25,14 @@ public class SettingsMenuController : MonoBehaviour
     private void OnEnable()
     {
         message.gameObject.SetActive(false);
+
+        currentFpsCapText.text = GameManager.Instance.SaveData.FPSCapSetting switch
+        {
+            FPSCapSetting.THIRTY => "Currently: {30}",
+            FPSCapSetting.SIXTY => "Currently: {60}",
+            FPSCapSetting.MONITOR => $"Currently: {{{GameManager.Instance.GetFpsCapForMonitor()}}}",
+            _ => currentFpsCapText.text
+        };
     }
 
     private void Update()
@@ -127,5 +138,21 @@ public class SettingsMenuController : MonoBehaviour
 
         // Then show it
         MenuManager.Instance.TurnMenuOff(MenuIndexes.Settings, MenuIndexes.AlertReset, true);
+    }
+
+    public void ThirtyFpsButton()
+    {
+        GameManager.Instance.SetFpsCap(FPSCapSetting.THIRTY, true);
+        currentFpsCapText.text = "Currently: {30}";
+    }
+    public void SixtyFpsButton()
+    {
+        GameManager.Instance.SetFpsCap(FPSCapSetting.SIXTY, true);
+        currentFpsCapText.text = "Currently: {60}";
+    }
+    public void MonitorFpsButton()
+    {
+        GameManager.Instance.SetFpsCap(FPSCapSetting.MONITOR, true);
+        currentFpsCapText.text = $"Currently: {{{GameManager.Instance.GetFpsCapForMonitor()}}}";
     }
 }

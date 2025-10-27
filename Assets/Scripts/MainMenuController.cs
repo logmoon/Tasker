@@ -34,7 +34,6 @@ public class MainMenuController : MonoBehaviour
             fullscreenButton.SetActive(false);
         }
 
-        Debug.Log(AudioManager.Instance.GetAudioVolume(AudioType.FIRE));
         fireVolumeSlider.value = AudioManager.Instance.GetAudioVolume(AudioType.FIRE);
         rainVolumeSlider.value = AudioManager.Instance.GetAudioVolume(AudioType.RAIN);
     }

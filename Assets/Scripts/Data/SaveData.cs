@@ -2,9 +2,21 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum FPSCapSetting
+{
+    THIRTY,
+    SIXTY,
+    MONITOR,
+}
+
 public class SaveData : SmartSaves.Data<SaveData>
 {
-    public const int CURRENT_VERSION = 1;
+    public const int CURRENT_VERSION = 2;
+
+    // Settings
+    public FPSCapSetting FPSCapSetting = FPSCapSetting.THIRTY;
+    public float RainVolume = 0.5f;
+    public float FireVolume = 0.5f;
 
     // Sessions
     public List<SessionData> Sessions = new List<SessionData>();
@@ -21,6 +33,10 @@ public class SaveData : SmartSaves.Data<SaveData>
 
     private void HandleMigrations()
     {
+        Debug.Log($"Migrating from version: ({Version}) to version: ({CURRENT_VERSION})");
+
+        // =============================================================================
+        // VERSION 1 MIGRATION:
         foreach (var session in Sessions)
         {
             // =============================================================================
@@ -32,12 +48,20 @@ public class SaveData : SmartSaves.Data<SaveData>
             }
             // =============================================================================
         }
+        // =============================================================================
+
+        // =============================================================================
+        // VERSION 2 MIGRATION:
+        FPSCapSetting = FPSCapSetting.THIRTY;
+        RainVolume = 0.5f;
+        FireVolume = 0.5f;
+        // =============================================================================
 
         // Update the version
         Version = CURRENT_VERSION;
 
         this.Save();
 
-        Debug.Log("SaveData migration complete.");
+        Debug.Log("Migration complete.");
     }
 }
