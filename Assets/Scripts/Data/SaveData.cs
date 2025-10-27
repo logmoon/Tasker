@@ -15,8 +15,6 @@ public class SaveData : SmartSaves.Data<SaveData>
 
     // Settings
     public FPSCapSetting FPSCapSetting = FPSCapSetting.THIRTY;
-    public float RainVolume = 0.5f;
-    public float FireVolume = 0.5f;
 
     // Sessions
     public List<SessionData> Sessions = new List<SessionData>();
@@ -53,8 +51,6 @@ public class SaveData : SmartSaves.Data<SaveData>
         // =============================================================================
         // VERSION 2 MIGRATION:
         FPSCapSetting = FPSCapSetting.THIRTY;
-        RainVolume = 0.5f;
-        FireVolume = 0.5f;
         // =============================================================================
 
         // Update the version

@@ -150,11 +150,6 @@ public class AudioManager : MonoBehaviour
         }
 
         GenerateAudioTable();
-
-        // Not very elegant but works
-        // We basically set the volumes based on saved data at start
-        SetAudioVolume(AudioType.RAIN, GameManager.Instance.SaveData.RainVolume);
-        SetAudioVolume(AudioType.FIRE, GameManager.Instance.SaveData.FireVolume);
     }
 
     private void Dispose()
